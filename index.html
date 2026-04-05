@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torrez & Maldonado</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',sans-serif;background:#050505;color:#d4af37;}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(45deg,rgba(255,255,255,0.02) 25%,transparent 25%),linear-gradient(-45deg,rgba(255,255,255,0.02) 25%,transparent 25%);background-size:40px 40px;pointer-events:none;}
+header{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:radial-gradient(circle at center,#111 0%,#000 100%);} 
+header img{width:320px;margin-bottom:20px;}
+h1{font-family:'Playfair Display',serif;font-size:42px;margin:0;letter-spacing:2px;}
+p{color:#aaa;max-width:700px;}
+.btn{margin-top:15px;padding:10px 20px;border:1px solid #d4af37;border-radius:30px;color:#d4af37;text-decoration:none;transition:.3s;cursor:pointer;display:inline-block;background:transparent;
+}
+.btn:hover{background:#d4af37;color:#000;}
+section{padding:40px 20px;max-width:1200px;margin:auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;}
+.card{background:linear-gradient(145deg,#0a0a0a,#111);padding:25px;border-radius:18px;border:1px solid #1a1a1a;transition:.3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(212,175,55,0.08);} 
+.carousel{position:relative;height:200px;overflow:hidden;border-radius:12px;margin-bottom:15px;background:#111;}
+.slide{position:absolute;width:100%;height:100%;display:none;}
+.slide.active{display:block;}
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform 0.4s ease;
+}
+.nav{position:absolute;top:50%;transform:translateY(-50%);background:#0008;border:none;color:#d4af37;padding:5px 10px;cursor:pointer;}
+.prev{left:10px;}
+.next{right:10px;}
+h2{font-family:'Playfair Display',serif;margin-bottom:10px;}
+.team-photo{max-width:600px;margin:auto;margin-bottom:30px;}
+.team-photo img{width:100%;border-radius:12px;}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+footer{text-align:center;padding:30px;color:#666;border-top:1px solid #111;}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#d4af37;color:#000;padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:bold;}
+</style>
+</head>
+<body>
+<div id="fullscreen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; justify-content:center; align-items:center; z-index:9999;">
+<img id="fullImg" style="max-width:90%; max-height:90%;">
+</div>
+
+
+<audio id="bg-music" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+<img src="logo.png" alt="logo">
+<h1>Torrez & Maldonado</h1>
+<p>Ubicaciones estratégicas para inversión y desarrollo inmobiliario</p>
+<button class="btn" onclick="toggleMusic()">Iniciar música</button>
+<a class="btn" href="https://wa.me/523221077202">Contactar</a>
+</header>
+
+<section>
+<h2>¿Quiénes somos?</h2>
+<p>Firma inmobiliaria enfocada en detectar oportunidades estratégicas en Puerto Vallarta, Bahía de Banderas y Tepic Nayarit. Conectamos ubicación y crecimiento real listo para tu inversión.</p>
+</section>
+
+<section>
+<h2>Valores</h2>
+<p>Transparencia • Compromiso • Visión • Profesionalismo • Resultados</p>
+</section>
+
+<section>
+<h2>Servicios</h2>
+
+<p>Trámite de créditos  • Verificación de puntos INFONAVIT  • Rentas  • Ventas • Ubicación de propiedades estratégicas</p>
+
+</div>
+</section>
+
+<section>
+<h2 style="text-align:center; text-transform:uppercase; letter-spacing:3px; font-size:36px; margin:20px 0;">
+PROPIEDADES PUERTO VALLARTA JALISCO
+</h2>
+</section>
+
+<section>
+<h2>Desarrollos</h2>
+<div class="grid">
+<div class="card">
+<div class="carousel" id="d1">
+<div class="slide active"><img src="alana1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="alana2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="alana3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('d1',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('d1',1)">❯</button>
+</div>
+<h3>Alana (Preventa)</h3>
+<p>Proyecto con alto potencial.</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20el%20desarrollo%20Alana%20en%20preventa%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precios,%20formas%20de%20pago%20y%20disponibilidad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="d2">
+<div class="slide active"><img src="sendas1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="sendas2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="sendas3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('d2',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('d2',1)">❯</button>
+</div>
+<h3>Sendas</h3>
+<p>Desarrollo estratégico.</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20el%20desarrollo%20Sendas%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precios,%20ubicación%20y%20disponibilidad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="d3">
+<div class="slide active"><img src="primavera1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="primavera2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="primavera3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('d3',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('d3',1)">❯</button>
+</div>
+<h3>Primavera Residencial</h3>
+<p>Espacio disponible.</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20Primavera%20Residencial%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precios,%20ubicación%20y%20disponibilidad?">
+Pedir más información
+</a>
+</div>
+</section>
+
+<section>
+<h2>Propiedades</h2>
+<div class="grid">
+
+<div class="card">
+<div class="carousel" id="c1">
+<div class="slide active"><img src="poetas1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="poetas2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="poetas3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c1',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c1',1)">❯</button>
+</div>
+<h3>Terreno Av. de los Poetas</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20el%20terreno%20de%20Poetas%20y%20me%20interesa%20para%20inversión,%20¿me%20puedes%20dar%20detalles%20y%20disponibilidad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c2">
+<div class="slide active"><img src="villa1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="villa2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="villa3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c2',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c2',1)">❯</button>
+</div>
+<h3>Villa Sol</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20Villa%20Sol%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20disponibilidad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c3">
+<div class="slide active"><img src="ctm1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="ctm2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="ctm3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c3',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c3',1)">❯</button>
+</div>
+<h3>Infonavit CTM</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20propiedad%20en%20Infonavit%20CTM%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20si%20acepta%20crédito?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c4">
+<div class="slide active"><img src="sn1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="sn2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="sn3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c4',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c4',1)">❯</button>
+</div>
+
+<h3>Terreno ejidal con construcción – Lomas de San Nicolás</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20el%20terreno%20con%20construcción%20en%20Lomas%20de%20San%20Nicolás%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20detalles%20de%20la%20propiedad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c5">
+<div class="slide active"><img src="coap1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="coap2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="coap3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c5',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c5',1)">❯</button>
+</div>
+
+<h3>Terreno ejidal con construcción tipo dúplex – Lomas del Coapinole</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20el%20terreno%20con%20construcción%20tipo%20dúplex%20en%20Lomas%20del%20Coapinole%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20detalles%20de%20la%20propiedad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c6">
+<div class="slide active"><img src="altavela1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="altavela2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="altavela3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c6',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c6',1)">❯</button>
+</div>
+
+<h3>Altavela (RENTA) Bahia de Banderas - Vive Cerca De clinica 33, Cerca de NUevo Vallarta y Bucerias.</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20casa%20en%20renta%20en%20Altavela%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20si%20está%20disponible?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c7">
+<div class="slide active"><img src="sanvice1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="sanvice2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="sanvice3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c7',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c7',1)">❯</button>
+</div>
+<h3>San Vicente Nayarit - En Venta</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20propiedad%20tipo%20dúplex%20en%20San%20Vicente%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20detalles%20de%20la%20propiedad%20completa?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c8">
+<div class="slide active"><img src="tuca1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="tuca2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="tuca3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c8',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c8',1)">❯</button>
+</div>
+<h3>Tu Propiedad Aqui - Vendes - Rentas?</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20tengo%20una%20propiedad%20y%20me%20interesa%20venderla%20o%20ponerla%20en%20renta,%20¿me%20puedes%20apoyar%20con%20información?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c9">
+<div class="slide active"><img src="tuca4.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="tuca5.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="tuca6.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c9',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c9',1)">❯</button>
+</div>
+<h3>Tu Propiedad Aqui - Vendes - Rentas?</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20tengo%20una%20propiedad%20y%20me%20interesa%20venderla%20o%20ponerla%20en%20renta,%20¿me%20puedes%20apoyar%20con%20información?">
+Pedir más información
+</a>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2 style="text-align:center; text-transform:uppercase; letter-spacing:3px; font-size:30px;">
+PROPIEDADES TEPIC NAYARIT
+</h2>
+</section>
+
+<section>
+<h2>Propiedades</h2>
+<div class="grid">
+
+<div class="card">
+<div class="carousel" id="p1">
+<div class="slide active"><img src="gober1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="gober2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="gober3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('p1',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('p1',1)">❯</button>
+</div>
+<h3>Casa Gobernadores - Venta</h3>
+<p>Exelente Ubicacion ( ojo, no se Hinunda).</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20casa%20en%20la%20colonia%20Gobernadores%20en%20Tepic%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20detalles%20de%20la%20propiedad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="p2">
+<div class="slide active"><img src="santo1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="santo2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="santo3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('p2',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('p2',1)">❯</button>
+</div>
+<h3>San Antonio - Venta</h3>
+<p>Exelente Ubicacion, Cercana Todo y Con Facil Acceso A Av. Principales.</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20casa%20tipo%20dúplex%20en%20San%20Antonio%20(planta%20alta)%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20cómo%20funciona%20la%20propiedad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="p3">
+<div class="slide active"><img src="centro1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="centro2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="centro3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('p3',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('p3',1)">❯</button>
+</div>
+<h3>Casa Leon - Venta</h3>
+<p>A cuadra y media del sagrado corazon de Jesus, en pleno centro de la ciudad.</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20casa%20en%20Centro%20León%201%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20detalles%20de%20la%20propiedad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="p4">
+<div class="slide active"><img src="clinica1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="clinica2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="clinica3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('p4',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('p4',1)">❯</button>
+</div>
+<h3>Casa Leon 2 - Venta o Renta</h3>
+<p>Ideal para : Oficinas, Consultorios, Escuelas, Restaurantes, Veterinarias,Etc.</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20casa%20en%20el%20centro%20de%20Tepic%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio%20de%20venta%20y%20renta,%20ubicación%20y%20detalles?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="p5">
+<div class="slide active"><img src="victoria1.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="victoria2.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="victoria3.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('p5',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('p5',1)">❯</button>
+</div>
+<h3>casa H.Casas - Venta</h3>
+<p>Ubicada por Av. victoria, cuenta con local.</p>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20vi%20la%20Casa%20Victoria%20y%20me%20interesa,%20¿me%20puedes%20compartir%20precio,%20ubicación%20y%20detalles%20de%20la%20propiedad?">
+Pedir más información
+</a>
+</div>
+
+<div class="card">
+<div class="carousel" id="c9">
+<div class="slide active"><img src="tuca4.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="tuca5.jpg"onclick="openFullscreen(this.src)"></div>
+<div class="slide"><img src="tuca6.jpg"onclick="openFullscreen(this.src)"></div>
+<button class="nav prev" onclick="moveSlide('c9',-1)">❮</button>
+<button class="nav next" onclick="moveSlide('c9',1)">❯</button>
+</div>
+<h3>Tu Propiedad Aqui - Vendes - Rentas?</h3>
+<a class="btn" href="https://wa.me/523221077202?text=Hola,%20tengo%20una%20propiedad%20y%20me%20interesa%20venderla%20o%20ponerla%20en%20renta,%20¿me%20puedes%20apoyar%20con%20información?">
+Pedir más información
+</a>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Equipo</h2>
+<div class="team-photo">
+<img src="equipo.jpg" alt="equipo">
+</div>
+<div class="team">
+<div class="card">
+<h3>Rodrigo Maldonado</h3>
+<p>Ejecutivo de ventas</p>
+<p>+52 322 134 0289</p>
+<p>ventas.rodrigomaldonado@gmail.com</p>
+<a class="btn" href="https://wa.me/523221340289">WhatsApp</a>
+</div>
+<div class="card">
+<h3>Lic. Verónica Torrez</h3>
+<p>Ejecutiva de ventas</p>
+<p>+52 322 107 7202</p>
+<p>licenciadatorrez08@gmail.com</p>
+<a class="btn" href="https://wa.me/523221077202">WhatsApp</a>
+</div>
+</div>
+</section>
+
+<section>
+<h2 style="text-align:center; text-transform:uppercase; letter-spacing:3px;">
+¿Quieres más información?
+</h2>
+
+<p style="text-align:center; color:#aaa;">
+Déjanos tus datos y un asesor se pondrá en contacto contigo.
+</p>
+
+<div style="text-align:center;">
+<a class="btn" href="https://forms.gle/c6PraibzWms19coG6">
+Dejar mis datos
+</a>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Torrez & Maldonado</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/523221077202">WhatsApp</a>
+
+<script>
+function moveSlide(id,dir){
+let c=document.getElementById(id);
+let slides=c.querySelectorAll('.slide');
+let index=[...slides].findIndex(s=>s.classList.contains('active'));
+slides[index].classList.remove('active');
+index=(index+dir+slides.length)%slides.length;
+slides[index].classList.add('active');
+}
+function toggleMusic(){
+let music=document.getElementById('bg-music');
+if(music.paused){music.play();}else{music.pause();}
+}
+</script>
+
+<script>
+function openFullscreen(src){
+document.getElementById('fullscreen').style.display='flex';
+document.getElementById('fullImg').src=src;
+}
+
+document.getElementById('fullscreen').onclick=function(){
+this.style.display='none';
+}
+</script>
+
+</body>
+</html>
